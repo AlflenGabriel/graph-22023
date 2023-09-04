@@ -11,17 +11,14 @@ def create_graph(vertices, edges):
   return graph
 
 def degree(graph, vertex):
-  """Returns the degree of the given vertex."""
 
   return len(graph[vertex])
 
 def neighbors(graph, vertex):
-  """Returns the neighbors of the given vertex."""
 
   return graph[vertex]
 
 def is_complete(graph):
-  """Returns True if the graph is complete, False otherwise."""
 
   for vertex in graph:
     for neighbor in graph:
@@ -31,7 +28,6 @@ def is_complete(graph):
   return True
 
 def is_path(graph, vertices):
-  """Returns True if the given vertices represent a path, False otherwise."""
 
   if len(vertices) == 0:
     return True
@@ -46,25 +42,31 @@ def is_path(graph, vertices):
   return True
 
 def is_circuit(graph, vertices):
-  """Returns True if the given vertices represent a circuit, False otherwise."""
 
   if is_path(graph, vertices):
     return vertices[0] == vertices[-1]
 
   return False
 
-num_vertices = 5
+num_vertices = 13
 vertices = [chr(65 + i) for i in range(num_vertices)]
 edges = list(itertools.combinations(vertices, 2))
 edges = [(edge[0], edge[1]) for edge in edges]
 graph = create_graph(vertices, edges)
 
+def get_number_of_elements(list):
+    count = 0
+    for element in list:
+        count += 1
+    return count
 
+print("Numero de Arestas: ", get_number_of_elements(edges))
 print("A verificacao booleana se o Grafo e caminho: ", is_path(graph, vertices))
 print("A verificacao booleana se o Grafo e circuito: ", is_circuit(graph, vertices))
 print("O grau de um determinado vertice: ", degree(graph, 'A'))
 print("A vizinhanca de um determinado vertice", neighbors(graph, 'A'))
 print("A verificacao booleana se o Grafo e completo.", is_complete(graph))
+print(edges)
 
 def is_connected(graph):
     """Returns True if the graph is connected, False otherwise."""
@@ -85,7 +87,7 @@ def is_connected(graph):
 
     return len(visited) == len(graph)
 
-num_vertices = 5
+num_vertices = 13 
 vertices = [chr(65 + i) for i in range(num_vertices)]
 edges = list(itertools.combinations(vertices, 2))
 edges = [(edge[0], edge[1]) for edge in edges]
