@@ -69,7 +69,6 @@ print("A verificacao booleana se o Grafo e completo.", is_complete(graph))
 print(edges)
 
 def is_connected(graph):
-    """Returns True if the graph is connected, False otherwise."""
     
     if not graph:
         return False
